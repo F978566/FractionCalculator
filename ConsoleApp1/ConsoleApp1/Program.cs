@@ -184,6 +184,22 @@
         {
             return x.numerator * y.denominator == x.denominator * y.numerator;
         }
+        public static bool operator !=(int x, Ratio y)
+        {
+            return y.denominator != y.numerator * x;
+        }
+        public static bool operator ==(int x, Ratio y)
+        {
+            return y.denominator == y.numerator * x;
+        }
+        public static bool operator !=(Ratio x, int y)
+        {
+            return x.numerator != x.denominator * y;
+        }
+        public static bool operator ==(Ratio x, int y)
+        {
+            return x.numerator == x.denominator * y;
+        }
         // < >
         public static bool operator >(Ratio x, Ratio y)
         {
@@ -192,6 +208,22 @@
         public static bool operator <(Ratio x, Ratio y)
         {
             return x.numerator * y.denominator < x.denominator * y.numerator;
+        }
+        public static bool operator >(int x, Ratio y)
+        {
+            return y.denominator > y.numerator * x;
+        }
+        public static bool operator <(int x, Ratio y)
+        {
+            return y.denominator < y.numerator * x;
+        }
+        public static bool operator <(Ratio x, int y)
+        {
+            return x.numerator < x.denominator * y;
+        }
+        public static bool operator >(Ratio x, int y)
+        {
+            return x.numerator > x.denominator * y;
         }
 
         // >= <=
@@ -203,6 +235,22 @@
         {
             return x.numerator * y.denominator <= x.denominator * y.numerator;
         }
+        public static bool operator >=(int x, Ratio y)
+        {
+            return y.denominator >= y.numerator;
+        }
+        public static bool operator <=(int x, Ratio y)
+        {
+            return y.denominator <= y.numerator;
+        }
+        public static bool operator >=(Ratio x, int y)
+        {
+            return x.numerator >= x.denominator;
+        }
+        public static bool operator <=(Ratio x, int y)
+        {
+            return x.numerator <= x.denominator;
+        }
 
     }
 
@@ -210,10 +258,9 @@
     {
         static void Main(string[] args)
         {
-            var r1 = new Ratio(1, 4);
+            var r1 = new Ratio(7, 4);
             var r2 = new Ratio(1, 5);
-            r1 += r2;
-            Console.WriteLine(r1);
+            Console.WriteLine(r1 < 2);
         }
     }
 }
