@@ -186,11 +186,11 @@
         }
         public static bool operator !=(int x, Ratio y)
         {
-            return y.denominator != y.numerator * x;
+            return y.denominator * x != y.numerator;
         }
         public static bool operator ==(int x, Ratio y)
         {
-            return y.denominator == y.numerator * x;
+            return y.denominator * x == y.numerator;
         }
         public static bool operator !=(Ratio x, int y)
         {
@@ -258,9 +258,9 @@
     {
         static void Main(string[] args)
         {
-            var r1 = new Ratio(7, 4);
+            var r1 = new Ratio(8, 4);
             var r2 = new Ratio(1, 5);
-            Console.WriteLine(r1 >= 2);
+            Console.WriteLine(2 == r1);
         }
     }
 }
